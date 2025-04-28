@@ -95,3 +95,5 @@
 28 4月 2025 11:59:37,359 INFO com.sismics.docs.core.service.FileSizeService.startUp(FileSizeService.java:30) File size service starting up 
 28 4月 2025 11:59:37,602 INFO com.sismics.docs.core.service.FileSizeService.lambda$runOneIteration$0(FileSizeService.java:50) No more file to process, stopping the service 
 28 4月 2025 11:59:37,603 INFO com.sismics.docs.core.service.FileSizeService.shutDown(FileSizeService.java:35) File size service shutting down 
+28 4月 2025 14:50:14,762 INFO com.sismics.docs.core.service.InboxService.shutDown(InboxService.java:57) Inbox service shutting down 
+28 4月 2025 14:50:14,765 INFO com.sismics.docs.core.service.FileService.shutDown(FileService.java:44) File service shutting down 
