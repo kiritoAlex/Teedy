@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>注册申请管理</h2>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>用户名</th>
+        <th>邮箱</th>
+        <th>附加信息</th>
+        <th>状态</th>
+        <th>申请时间</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="req in registerRequests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.username }}</td>
+        <td>{{ req.email }}</td>
+        <td>{{ req.message }}</td>
+        <td>{{ req.status }}</td>
+        <td>{{ req.createTime | date:'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td>
+          <button class="btn btn-success btn-xs" ng-click="approve(req)" ng-disabled="req.status !== 'pending'">通过</button>
+          <button class="btn btn-danger btn-xs" ng-click="reject(req)" ng-disabled="req.status !== 'pending'">拒绝</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> 

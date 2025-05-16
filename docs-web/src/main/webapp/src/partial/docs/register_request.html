@@ -1,0 +1,29 @@
+<form name="form">
+  <div class="modal-header">
+    <h3>{{ '注册申请' }}</h3>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="inputRegisterUsername">{{ '用户名' }}</label>
+      <input name="username" class="form-control" type="text" required id="inputRegisterUsername" ng-model="register.username" ng-attr-placeholder="{{ 'register.request.username' | translate }}" />
+    </div>
+    <div class="form-group">
+      <label for="inputRegisterEmail">{{ '邮箱' }}</label>
+      <input name="email" class="form-control" type="email" required id="inputRegisterEmail" ng-model="register.email" ng-attr-placeholder="{{ 'register.request.email' | translate }}" />
+    </div>
+    <div class="form-group">
+      <label for="inputRegisterPassword">{{ '密码' }}</label>
+      <input name="password" class="form-control" type="password" required id="inputRegisterPassword" ng-model="register.password" ng-attr-placeholder="请输入密码" />
+    </div>
+    <div class="form-group">
+      <label for="inputRegisterMessage">{{ '附加信息' }}</label>
+      <textarea name="message" class="form-control" id="inputRegisterMessage" ng-model="register.message" ng-attr-placeholder="{{ 'register.request.message' | translate }}"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button ng-click="submit(register)" class="btn btn-primary" ng-disabled="!form.$valid">
+      <span class="fas fa-paper-plane"></span> {{ '提交' }}
+    </button>
+    <button ng-click="cancel()" class="btn btn-default">{{ '取消' }}</button>
+  </div>
+</form> 
