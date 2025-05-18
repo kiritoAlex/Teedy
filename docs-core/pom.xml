@@ -21,6 +21,12 @@
       <artifactId>hibernate-core</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+
     <!-- Other external dependencies -->
     <dependency>
       <groupId>joda-time</groupId>
