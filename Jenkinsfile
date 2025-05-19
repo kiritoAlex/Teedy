@@ -3,7 +3,6 @@
     environment { 
 // define environment variable 
 // Jenkins credentials configuration 
-        DOCKER_HUB_CREDENTIALS = credentials('kiritoalex') // Docker Hub credentials ID store in Jenkins 
 // Docker Hub Repository's name 
         DOCKER_IMAGE = 'kiritoalex0605/teedy-app' // your Docker Hub user name and Repository's name 
         DOCKER_TAG = "${env.BUILD_NUMBER}" // use build number as tag 
@@ -34,7 +33,7 @@
             steps { 
                 script { 
 // sign in Docker Hub 
-            docker.withRegistry('https://registry.hub.docker.com', "${env.DOCKER_HUB_CREDENTIALS}") { 
+            docker.withRegistry('https://registry.hub.docker.com', "kiritoalex") { 
 // push image 
         docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").push() 
 // ：optional: label latest 
