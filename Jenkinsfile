@@ -3,10 +3,10 @@
     environment { 
 // define environment variable 
 // Jenkins credentials configuration 
-        DOCKER_HUB_CREDENTIALS = credentials('dockerhub_credentials') // Docker 
-Hub credentials ID store in Jenkins 
+        DOCKER_HUB_CREDENTIALS = credentials('kiritoalex') // Docker 
+        Hub credentials ID store in Jenkins 
 // Docker Hub Repository's name 
-DOCKER_IMAGE = 'KiritoAlex0605/teedy-app' // your Docker Hub user name and Repository's name 
+        DOCKER_IMAGE = 'KiritoAlex0605/teedy-app' // your Docker Hub user name and Repository's name 
         DOCKER_TAG = "${env.BUILD_NUMBER}" // use build number as tag 
     } 
     stages { 
@@ -18,8 +18,7 @@ DOCKER_IMAGE = 'KiritoAlex0605/teedy-app' // your Docker Hub user name and Repos
                     extensions: [],  
                     userRemoteConfigs: [[url: 'https://github.com/kiritoAlex/Teedy.git']]
                     ) 
-                sh 
-'mvn -B -DskipTests clean package' 
+                sh 'mvn -B -DskipTests clean package' 
             } 
         } 
 // Building Docker images 
@@ -36,8 +35,7 @@ DOCKER_IMAGE = 'KiritoAlex0605/teedy-app' // your Docker Hub user name and Repos
             steps { 
                 script { 
 // sign in Docker Hub 
-                    docker.withRegistry('https://registry.hub.docker.com', 
-'DOCKER_HUB_CREDENTIALS') { 
+                    docker.withRegistry('https://registry.hub.docker.com', 'DOCKER_HUB_CREDENTIALS') { 
 // push image 
 docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").push() 
 // ：optional: label latest 
@@ -54,9 +52,7 @@ docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").push('latest')
 sh 'docker stop teedy-container-8081 || true' 
 sh 'docker rm teedy-container-8081 || true' 
 // run Container 
-docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").run( 
-'--name teedy-container-8081 -d -p 8081:8080' 
-) 
+docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").run( '--name teedy-container-8081 -d -p 8081:8080' ) 
 // Optional: list all teedy-containers 
 sh 'docker ps --filter "name=teedy-container"' 
     } 
