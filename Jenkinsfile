@@ -34,7 +34,7 @@
             steps { 
                 script { 
 // sign in Docker Hub 
-            docker.withRegistry('https://registry.hub.docker.com', "${env.DOCKER_IMAGE}") { 
+            docker.withRegistry('https://registry.hub.docker.com', "${env.DOCKER_HUB_CREDENTIALS}") { 
 // push image 
         docker.image("${env.DOCKER_IMAGE}:${env.DOCKER_TAG}").push() 
 // ：optional: label latest 
