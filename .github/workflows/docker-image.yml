@@ -53,7 +53,7 @@ build_docker_image:
     id: metadata 
     uses: docker/metadata-action@v3 
     with: 
-      images: xx/Teedy # Docker Hub repository 
+      images: kiritoalex0605/teedy-app # Docker Hub repository 
       flavor: | 
         latest=false 
       tags: | 
