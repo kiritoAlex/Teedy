@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DEPLOYMENT_NAME = "hello-node"
-        CONTAINER_NAME = "your-container"
+        CONTAINER_NAME = "docs"
         IMAGE_NAME = "kiritoalex0605/teedy-app:latest"
     }
     stages {
